@@ -1,0 +1,6 @@
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\bin\Debug\SnakeGameServer.exe.config
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\bin\Debug\SnakeGameServer.exe
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\bin\Debug\SnakeGameServer.pdb
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\obj\Debug\SnakeGameServer.exe
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\obj\Debug\SnakeGameServer.pdb
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\obj\Debug\SnakeGameServer.csprojAssemblyReference.cache

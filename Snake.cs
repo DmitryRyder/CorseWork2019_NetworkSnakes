@@ -1,28 +1,37 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using System.Net.Sockets;
+using System.Text;
 
 namespace SnakeGame
 {
     public class Snake
     {
-        Color backGround = new Color(108, 113, 128); // default color gray 
         SpriteBatch spriteBatch;
         Texture2D rectangleBlock;
         GraphicsDevice graphicsDevice;
         SnakeBlock head;
         GameWindow window;
         int count;
+        int length;
+        int startPositionX;
+        int startPositionY;
 
         public Direction Direction { get; set; }
         public int Count { get { return count; } }
 
-        public Snake(GraphicsDevice graphicsDevice, GameWindow window)
+        public Snake(GraphicsDevice graphicsDevice, GameWindow window, int length, int startPositionX, int startPositionY)
         {
             this.window = window;
             this.graphicsDevice = graphicsDevice;
             rectangleBlock = new Texture2D(this.graphicsDevice, 1, 1);
             rectangleBlock.SetData(new[] { Color.White });
             spriteBatch = new SpriteBatch(this.graphicsDevice);
+            this.length = length;
+            this.startPositionX = startPositionX;
+            this.startPositionY = startPositionY;
             BeginInitialise();
         }
 
@@ -54,18 +63,17 @@ namespace SnakeGame
 
         public void BeginInitialise()
         {
-            var b = 5;
-            for (var i = count; i < 30; i++)
+            var shiftForX = 5;
+            for (var i = count; i < length; i++)
             {
-                Add(new SnakeBlock(new Color(55, 255, 255), new Point(20, 20), new Point(120 - b, 5), window));
-                b += 20;
+                Add(new SnakeBlock(new Color(55, 255, 255), new Point(20, 20), new Point(startPositionX - shiftForX, startPositionY), window));
+                shiftForX += 20;
             }
             head.Color = Color.Red;
         }
 
         public void Draw()
         {
-            graphicsDevice.Clear(backGround);
             spriteBatch.Begin();
             SnakeBlock tempNode = head;
             for (var i = 0; i <= count; i++)
@@ -81,7 +89,7 @@ namespace SnakeGame
             SnakeBlock tempNode = head.Previous;
             Point fixState = new Point(head.Position.X, head.Position.Y);
             head.ToTurn(fixState, direction);
-            for (var i = 0; i < count-1; i++)
+            for (var i = 0; i < count - 1; i++)
             {
                 tempNode.ToTurn(fixState, direction);
                 tempNode = tempNode.Previous;

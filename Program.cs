@@ -7,7 +7,9 @@ namespace SnakeGame
         [STAThread]
         static void Main()
         {
-            using (var game = new SnakeGame())
+            AutofacConfig.Config();
+            var connection = AutofacConfig.Resolve<IConnection>();
+            using (var game = new SnakeGame(connection))
                 game.Run();
         }
     }
