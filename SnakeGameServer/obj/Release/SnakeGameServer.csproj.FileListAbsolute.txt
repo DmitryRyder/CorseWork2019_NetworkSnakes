@@ -1,0 +1,9 @@
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\bin\Release\SnakeGameServer.exe.config
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\bin\Release\SnakeGameServer.exe
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\bin\Release\SnakeGameServer.pdb
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\bin\Release\Common.dll
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\bin\Release\Common.pdb
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\obj\Release\SnakeGameServer.csprojAssemblyReference.cache
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\obj\Release\SnakeGameServer.csproj.CopyComplete
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\obj\Release\SnakeGameServer.exe
+C:\repos\CorseWork2019_NetworkSnakes\SnakeGameServer\obj\Release\SnakeGameServer.pdb

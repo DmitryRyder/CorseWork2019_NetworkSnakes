@@ -46,3 +46,6 @@ C:\repos\CorseWork2019_NetworkSnakes\bin\Windows\x86\Debug\Autofac.dll
 C:\repos\CorseWork2019_NetworkSnakes\bin\Windows\x86\Debug\Autofac.pdb
 C:\repos\CorseWork2019_NetworkSnakes\bin\Windows\x86\Debug\Autofac.xml
 C:\repos\CorseWork2019_NetworkSnakes\obj\x86\Debug\MonoGameWindowsApplication.csprojAssemblyReference.cache
+C:\repos\CorseWork2019_NetworkSnakes\bin\Windows\x86\Debug\$safeprojectname$.exe.config
+C:\repos\CorseWork2019_NetworkSnakes\bin\Windows\x86\Debug\Common.dll
+C:\repos\CorseWork2019_NetworkSnakes\bin\Windows\x86\Debug\Common.pdb

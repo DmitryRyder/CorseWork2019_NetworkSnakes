@@ -1,6 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Common.Enums;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using System.Net.Sockets;
 
 namespace SnakeGame
 {
@@ -52,6 +52,8 @@ namespace SnakeGame
                     return;
                 currentDirection = Direction.Left;
                 _connection.SendData(Direction.Left);
+                Direction direction = _connection.RecieveData();
+                enemySnake.Turn(direction);
                 snake.Turn(Direction.Left);
                 snake.Moving();
                 return;
@@ -62,6 +64,8 @@ namespace SnakeGame
                     return;
                 currentDirection = Direction.Right;
                 _connection.SendData(Direction.Right);
+                Direction direction = _connection.RecieveData();
+                enemySnake.Turn(direction);
                 snake.Turn(Direction.Right);
                 snake.Moving();
                 return;
@@ -72,6 +76,8 @@ namespace SnakeGame
                     return;
                 currentDirection = Direction.Top;
                 _connection.SendData(Direction.Top);
+                Direction direction = _connection.RecieveData();
+                enemySnake.Turn(direction);
                 snake.Turn(Direction.Top);
                 snake.Moving();
                 return;
@@ -82,6 +88,8 @@ namespace SnakeGame
                     return;
                 currentDirection = Direction.Bottom;
                 _connection.SendData(Direction.Bottom);
+                Direction direction = _connection.RecieveData();
+                enemySnake.Turn(direction);
                 snake.Turn(Direction.Bottom);
                 snake.Moving();
                 return;

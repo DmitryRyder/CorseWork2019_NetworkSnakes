@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Common.Enums;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 
 namespace SnakeGame

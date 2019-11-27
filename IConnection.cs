@@ -1,4 +1,6 @@
-﻿namespace SnakeGame
+﻿using Common.Enums;
+
+namespace SnakeGame
 {
     public interface IConnection
     {

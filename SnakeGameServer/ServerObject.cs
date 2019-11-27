@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Threading;
+using Common.Enums;
 
 namespace TcpServer
 {
@@ -54,6 +55,18 @@ namespace TcpServer
         protected internal void BroadcastMessage(string message, string id)
         {
             byte[] data = Encoding.Unicode.GetBytes(message);
+            for (int i = 0; i < clients.Count; i++)
+            {
+                if (clients[i].Id != id) // если id клиента не равно id отправляющего
+                {
+                    clients[i].Stream.Write(data, 0, data.Length); //передача данных
+                }
+            }
+        }
+
+        protected internal void BroadcastData(Direction direction, string id)
+        {
+            byte[] data = { (byte)direction };
             for (int i = 0; i < clients.Count; i++)
             {
                 if (clients[i].Id != id) // если id клиента не равно id отправляющего

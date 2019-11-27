@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Enums;
+using System;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
@@ -29,7 +30,7 @@ namespace TcpServer
                 // получаем имя пользователя
                 string message = GetMessage();
                 userName = message;
-                int dataDirection;
+                int dataDirection = 0;
 
                 message = userName + " подключился";
                 Console.WriteLine(message);
@@ -39,8 +40,14 @@ namespace TcpServer
                     try
                     {
                         dataDirection = GetData();
-                        //Console.WriteLine(message);
-                        //server.BroadcastMessage(message, this.Id);
+                        Console.WriteLine($"{userName} изменил направление на {(Direction)dataDirection}");
+
+                        if (dataDirection != 0 || dataDirection != 1 || dataDirection != 2 || dataDirection != 3 || dataDirection != 4)
+                        {
+                            server.BroadcastData((Direction)dataDirection, this.Id);
+                        }
+
+                        dataDirection = 0;
                     }
                     catch(Exception ex)
                     {
@@ -80,14 +87,16 @@ namespace TcpServer
         // чтение входящих данных
         private int GetData()
         {
-            int dataDirection = 0;
-            var reader = new BinaryReader(Stream);
-            while(reader.PeekChar() != -1) 
-            { 
-                dataDirection = reader.ReadInt32();
-            }
+            byte[] data = new byte[64]; // буфер для получаемых данных
+            int dataValue = 0;
+            do
+            {
+                Stream.Read(data, 0, data.Length);
 
-            return dataDirection;
+            }
+            while (Stream.DataAvailable);
+            dataValue = BitConverter.ToInt32(data, 0);
+            return dataValue;
         }
 
         // закрытие подключения

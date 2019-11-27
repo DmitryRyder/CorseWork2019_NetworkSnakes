@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGameWindowsApplication"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeGameServer", "SnakeGameServer\SnakeGameServer.csproj", "{9215E0AE-DBCF-4202-B5DE-ED302D977936}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{4FBC3662-C952-4777-B2E2-A214AC41F27C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,14 @@ Global
 		{9215E0AE-DBCF-4202-B5DE-ED302D977936}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9215E0AE-DBCF-4202-B5DE-ED302D977936}.Release|x86.ActiveCfg = Release|Any CPU
 		{9215E0AE-DBCF-4202-B5DE-ED302D977936}.Release|x86.Build.0 = Release|Any CPU
+		{4FBC3662-C952-4777-B2E2-A214AC41F27C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FBC3662-C952-4777-B2E2-A214AC41F27C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FBC3662-C952-4777-B2E2-A214AC41F27C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4FBC3662-C952-4777-B2E2-A214AC41F27C}.Debug|x86.Build.0 = Debug|Any CPU
+		{4FBC3662-C952-4777-B2E2-A214AC41F27C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FBC3662-C952-4777-B2E2-A214AC41F27C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FBC3662-C952-4777-B2E2-A214AC41F27C}.Release|x86.ActiveCfg = Release|Any CPU
+		{4FBC3662-C952-4777-B2E2-A214AC41F27C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,5 @@
-﻿using System;
-using System.IO;
+﻿using Common.Enums;
+using System;
 using System.Net.Sockets;
 using System.Text;
 
@@ -8,6 +8,7 @@ namespace SnakeGame
     public class NetworkClient : IConnection
     {
         private readonly TcpClient _client;
+        private static NetworkStream _stream;
 
         public NetworkClient(TcpClient client)
         {
@@ -19,11 +20,10 @@ namespace SnakeGame
             try
             {
                 _client.Connect(ipAdress, port);
-                var stream = _client.GetStream();
+                _stream = _client.GetStream();
                 string message = nameOfClient;
                 byte[] data = Encoding.Unicode.GetBytes(message);
-                stream.Write(data, 0, data.Length);
-                _client.Close();
+                _stream.Write(data, 0, data.Length);
             }
             catch (Exception ex)
             {
@@ -33,34 +33,22 @@ namespace SnakeGame
 
         public void SendData(Direction direction)
         {
-            if (!_client.Connected)
-            {
-                _client.Connect("127.0.0.1", 8888);
-            }
-            using (var stream = _client.GetStream())
-            {
-                using (var writer = new BinaryWriter(stream))
-                {
-                    writer.Write((int)direction);
-                    writer.Flush();
-                }
-            }
+            var t = direction.ToString();
+            byte[] data = { (byte)direction };
+            _stream.Write(data, 0, data.Length);
         }
 
         public Direction RecieveData()
         {
-            if (!_client.Connected)
+            byte[] data = new byte[64]; // буфер для получаемых данных
+            int dataValue = 0;
+            do
             {
-                _client.Connect("127.0.0.1", 8888);
+                _stream.Read(data, 0, data.Length);
             }
-            using (var stream = _client.GetStream())
-            {
-                using (var reader = new BinaryReader(stream))
-                {
-                    Direction direction = (Direction)reader.ReadInt32();
-                    return direction;
-                }
-            }
+            while (_stream.DataAvailable);
+            dataValue = BitConverter.ToInt32(data, 0);
+            return (Direction)dataValue;
         }
 
         private void Disconnect()
